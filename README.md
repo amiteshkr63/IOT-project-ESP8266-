@@ -1,0 +1,2 @@
+# IOT-project-ESP8266-
+This System is designed to display and control the status of electrical appliances via Django Server. interfacing the control of electrical appliance with Google Home via Google Cloud services and MQTT. It is also capable of sensing temperature via DHT11. In case of Intruder motion sensor will detect it automatically beeps the buzzer and an alert is received on gmail account.
