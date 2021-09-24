@@ -1,0 +1,2 @@
+shell cmd:
+printf 'GET / HTTP/1.1\r\nHost: www.google.com\r\nConnection: close\r\n\r\n' | nc www.google.com 80
