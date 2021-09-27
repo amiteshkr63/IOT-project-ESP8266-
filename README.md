@@ -40,3 +40,34 @@
   D8:  Buzzer 
 
 ![Screenshot (1679)](https://user-images.githubusercontent.com/88953654/134885998-6c5e7e4d-4b61-4493-872f-82511caa7a83.png)
+
+In ARDUINO IDE, Make these following changes:
+1) Open arduino IDE
+
+2) Go to File -> preferences 
+On that page, add the following in the Additional Boards Manager URL
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+3) Click on Tools -> Boards -> Boards Manager
+Search for ESP8266
+And, Install esp8266 by ESP8266 Community
+
+4) Now, select the board
+Click on Tools -> Board -> ESP8266 boards -> NodeMCU 1.0 (ESP-12E Module)
+
+5) Click Tools -> Upload speed -> 115200
+
+6) Connect your board to a USB port of your computer.
+Then power ON the board
+Then click on Tools -> Port -> Select the appropriate serial port
+
+7) Open Serial Monitor of the Arduino by clicking the button on the right top
+corner of the arduino IDE window. Then, check is baud rate at the bottom tabs.
+By default, it may be 9600. Change it to 115200
+
+8) Install DHT sensor library by Adrafruit
+click on sketch -> include library -> Manage Library.
+Then, Type DHT11 in the right field
+That will show this library along with a few others.
+Click on Install
+
