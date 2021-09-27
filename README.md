@@ -781,7 +781,8 @@ Next, you need to find the ```fingerprint(SHA-1)``` of this certificate. This is
 
 ```
 const uint8_t mqttCertFingerprint[] =
-{YOUR SHA-1 fingerprint};```
+{YOUR SHA-1 fingerprint};
+ ```
 
 Then, copy this to arduino sketch. Paste this just after the previous pasted line
 in the arduino sketch.
@@ -794,6 +795,7 @@ Then, in the next to next line, ```change the mqtt broker's port to 8883```
 
 Then, within the in the setup() function of the sketch, add the following lines
  after WiFi is connected:
+ 
  ```
 wifiClient.setTrustAnchors(&caCertX509);
 wifiClient.setFingerprint(mqttCertFingerprint);
