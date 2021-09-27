@@ -358,10 +358,9 @@ ALLOWED_HOSTS = ["127.0.0.1", "34.125.15.44", 'amiteshkr.xyz', 'http://amiteshkr
 And, add the following just after STATIC_URL at the bottom
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 Then save the settings.py
-This settings.py will look similar to settings.py-initial in the resources of Lesson-14,
-except for the ALLOWED_HOSTS. If you are copying settings.py-initial, make sure
-to change the ip address and domain name with yours.
+
 now, migrate by running the following commands
 
 ```cd ~/my_proj```
