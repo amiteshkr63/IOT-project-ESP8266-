@@ -709,7 +709,7 @@ If all steps are successful, you have installed SSL certificate on your cloud se
 
  *********************************************************************************************************************************************************************************
  
- ## Configuring MQTT broken with SSL encryption:
+ ## Configuring MQTT broker with SSL encryption:
 
 edit the file /etc/mosquitto/conf.d/default.conf and add the following:
 This will make sure that it uses letsencrypt certificate and uses encryption on connections on
