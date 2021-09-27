@@ -480,8 +480,8 @@ path('', views.index, name='index'),
 ]
 ```
 
-## Now, cd to ~/my_proj/myapp and create a file views.py
-##Add the following lines in views.py.
+Now, cd to ~/my_proj/myapp and create a file views.py
+Add the following lines in views.py.
 
 ```from django.shortcuts import render```
 
