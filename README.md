@@ -23,6 +23,12 @@
 [https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configuring-mqtt-broker-with-ssl-encryption](url)
 
 - Modify firmware of the device to use ssl certificate: [https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#modify-firmware-of-the-device-to-use-ssl-certificate](url)
+
+- GOOGLE HOME:[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#google-home](url)
+
+- Google Home – Account Linking:[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#google-home--account-linking](url)
+ 
+- Google Home fulfillment functions - SYNC:[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#google-home-fulfillment-functions---sync](url)
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
 #### Steps Involved:
