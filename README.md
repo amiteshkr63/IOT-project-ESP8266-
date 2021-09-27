@@ -19,6 +19,8 @@
  
 - SSL certificates Installation: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#ssl-certificates-installation
 
+- Configuring MQTT broker with SSL encryption:
+[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configuring-mqtt-broker-with-ssl-encryption](url)
 
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
@@ -723,10 +725,10 @@ cafile /etc/letsencrypt/live/amiteshkr.xyz/chain.pem
 keyfile /etc/letsencrypt/live/amiteshkr.xyz/privkey.pem
 ```
 
-since mosquito is using 8883 port for external communications, we need to change
+since mosquito is using ```8883``` port for external communications, we need to change
 the firewall rules of the cloude server
 
-Allow port 8883 on firewall, And, remove port 1883 from allowed ports
+```Allow port 8883 on firewall```, And, ```remove port 1883 from allowed ports```
 
 To do that...
 
@@ -734,9 +736,9 @@ Go to https://console.cloud.google.com/compute
 
 Click on the menu (three lines at the top lest).
 
-Then select VPC Network -> Firewall
+Then select ```VPC Network -> Firewall```
 
-Go to Networking -> VPC Network -> Firewall
+Go to ```Networking -> VPC Network -> Firewall```
 
 Then click on the name of the firewall where you have allowed port 1883
 
@@ -744,11 +746,11 @@ Then click on Edit tab
 
 Then scroll down where you will see 1883 under Protocols and ports.
 
-There, change 1883 to 8883
+There, change ```1883``` to ```8883```
 
-Then press Save
+Then press ```Save```
 
-The firewall will now allow tcp port 8883 to cloud server
+The firewall will now allow ```tcp port 8883``` to cloud server
 
 Then restart mosquitto by running the following command
 
