@@ -3,29 +3,22 @@
 
 #### This projects of following Sections:
 
-BUILDING a CLOUD SERVER(GOOGLE CLOUD):
-[https://github.com/amiteshkr63/IOT-project-ESP8266-#building-a-cloud-servergoogle-cloud](url)
+- BUILDING a CLOUD SERVER(GOOGLE CLOUD): https://github.com/amiteshkr63/IOT-project-ESP8266-#building-a-cloud-servergoogle-cloud
 
-MQTT Broker Installation and Configuration:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#mqtt-broker-installation-and-configuration](url)
+- MQTT Broker Installation and Configuration: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#mqtt-broker-installation-and-configuration
+ 
+- FILE PERMISSION: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#file-permission
+ 
+- Uploading Files on Cloud Server: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#uploading-files-on-cloud-server
+ 
+- Domain Name Registration: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#domain-name-registration
+ 
+- Django web server - Installation: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#django-web-server---installation
+ 
+- Configure apache2 to server Django: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configure-apache2-to-server-django
+ 
+- SSL certificates Installation: https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#ssl-certificates-installation
 
-FILE PERMISSION:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#file-permission](url)
-
-Uploading Files on Cloud Server:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#uploading-files-on-cloud-server](url)
-
-Domain Name Registration:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#domain-name-registration](url)
-
-Django web server - Installation:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#django-web-server---installation](url)
-
-Configure apache2 to server Django:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configure-apache2-to-server-django](url)
-
-SSL certificates Installation:
-[https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#ssl-certificates-installation](url)
 
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
