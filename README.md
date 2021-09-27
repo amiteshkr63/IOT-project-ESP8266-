@@ -71,7 +71,25 @@ Then, Type DHT11 in the right field
 That will show this library along with a few others.
 Click on Install
 
-## BUILDING a CLOUD SERVER(GOOGLE CLOUD:
+## BUILDING a CLOUD SERVER(GOOGLE CLOUD):
+
+*********************************************************************************************************************************************************************************
+Why Cloud Server needed?
+-Because all IOT devices are connected via CLOUD to INTERNET.
+-Also communicates with all human interfaces such as Human Interfaces and browsers on 
+CLIENT computers and so on.
+
+*********************************************************************************************************************************************************************************
+Building CLOUD SERVER:
+Needs:
+-Static IP address with Configurable Firewaall
+-e.g-Amazon web service,Google cloud,Digital ocean, Microsoft Azure
+(mostly free for 1 year..i.e in this google cloud is for 90 days)
+-If you want to login from other system apart from your comuter system, Add the PUBLIC KEY for
+that particular system into METADATA of Cloud server
+
+*********************************************************************************************************************************************************************************
+
 goto:
 [https://console.cloud.google.com/compute](url)
 There, create a project, if you do not have one already. Give the project any name or, leave it
@@ -146,8 +164,25 @@ Hereafter, to login to the cloud server, use the above command
 
   ```pip3 --version```
 
-  ## MQTT Broker Installation and Configuration):
-  
+## MQTT Broker Installation and Configuration):
+
+*********************************************************************************************************************************************************************************
+
+MQTT(Message Queuing Telemetry Transport)
+(Specicially Developed For IOT Devices)
+-Lightweight Messaging Protocol for in cases where clients need small code footprint
+-Uses TLS(Transport layer Security) encryption with user name, password and password protected 
+connections
+-Optional certifications requires clients to provide a certificate file that matches with the server
+-Clients unawre of each other IP address
+-Uses Publsh/subscribe model to communicate
+-MQTT broker is Center of Communication.
+-Each client can Publish and/or Subscribe a message with a topic with the broker. The Broker passes
+the message to all clients who subscribed to that topic.
+-PORT-1883 is the secure listener port for the broker.
+
+*********************************************************************************************************************************************************************************
+
   1.Installing MQTT broker on the cloud server
 
 ssh to your cloud server and run the following command to install mosquitto mqtt broker
