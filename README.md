@@ -145,4 +145,74 @@ Hereafter, to login to the cloud server, use the above command
   ```which pip3```
 
   ```pip3 --version```
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  ## MQTT Broker Installation and Configuration):
+  
+  1.Installing MQTT broker on the cloud server
+
+ssh to your cloud server and run the following command to install mosquitto mqtt broker
+
+```sudo apt-get install mosquitto```
+
+```sudo apt-get install mosquitto-clients```
+
+```sudo pip3 install paho-mqtt```
+Then start mosquitto service
+
+```sudo systemctl start mosquitto```
+```sudo systemctl enable mosquitto```
+
+Test if mosquitto broker is working
+run the following command to subscribe
+
+```mosquitto_sub -h localhost -t test```
+
+Then open another terminal to the cloud server and run the following command to publish
+```mosquitto_pub -h localhost -t test -m "hello world"```
+
+You should be seeing "hello world" displayed in the first terminal where you ran the
+subscriber command
+If so, mosquitto broker is ready to go
+
+2.Allow port 1883 on the firewall of your cloud server so that packet to moquitto broker will be
+allowed
+
+Go to https://console.cloud.google.com/compute
+
+Click on the menu (three lines at the top lest).
+Then select VPC Network -> Firewall
+Go to Networking -> VPC Network -> Firewall
+Then click on 'Create Newfirewall rule' tab at the top
+In the form that opens, give any name for this rule
+For target, select 'Specified service account'
+For source IP range, enter 0.0.0.0/0
+For Protocol ports, Check 'Specified protocols and ports'
+Then check 'tcp'. Then enter ports a 1883
+Leave everything else as default
+Then press 'Create'
+That will allow incoming tcp ports 1883
+
+3.Now setting user name and password for mosquitto mqtt broker
+
+Run the following command on the server to set username and password for mosquitto.
+
+```sudo mosquitto_passwd -c /etc/mosquitto/passwd <user name>```
+
+```sudo mosquitto_passwd -c /etc/mosquitto/passwd amitesh```
+
+This creates a file /etc/mosquitto/passwd
+
+Now, create a file default.conf in /etc/mosquitto/conf.d
+
+```cd /etc/mosquitto/conf.d```
+
+```sudo vi default.conf```
+
+Then add the following lines and save
+
+allow_anonymous false
+
+password_file /etc/mosquitto/passwd
+Now, restart mosquitto
+
+```sudo systemctl restart mosquitto```
