@@ -113,8 +113,7 @@ Note: If you have earlier added ssh keys to this server,
 Now, you can ssh to your cloud instance with the following command
 from a terminal of your computer as follows:
 (Microsoft Windows users can do this in a powershell, or use Putty)
-```ssh -i <absolute path of private key file name> <user name>@<external ip address
-of cloud server>```
+```ssh -i <absolute path of private key file name> <user name>@<external ip address of cloud server>```
 Example:
 ```ssh -i ~/.ssh/id_rsa amitesh@35.232.76.4```
 where id_rsa is the name of the default private key.
