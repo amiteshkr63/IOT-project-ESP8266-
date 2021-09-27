@@ -216,3 +216,25 @@ password_file /etc/mosquitto/passwd
 Now, restart mosquitto
 
 ```sudo systemctl restart mosquitto```
+  
+  
+Before you run the program check if the file has execute permissions by running
+the following command, if your are using MacBook or any Linux machines.
+  
+```ls -l <file name>```
+  
+###For examples,
+  
+```ls -l mqtt_publish-1.py```
+  
+-rwxr-xr-x@ 1 viswa staff 545 2 Feb 16:51 mqtt_publish-1.py
+  
+The first few characters in that output shows permissions for user, group and others.
+An x indicates execute permission. If execute permission does not exit for the user,
+change permission using the following command before executing the programming
+  
+```chmod 755 <file name>```
+  
+For example:
+  
+```chmod 755 mqtt_publish-1.py```
