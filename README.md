@@ -805,4 +805,68 @@ Then compile and load the sketch.
 
 Open the serial monitor of the arduino sketch. If successful, you should be seeing a message
 Connected Successfully to MQTT Broker !
+ *********************************************************************************************************************************************************************************
+
+ ## GOOGLE HOME:
  
+ Google Home:
+Ref: https://developers.google.com/assistant/identity/oauth2?oauth=code
+
+Go to Google action console
+https://console.actions.google.com/
+
+Click on New Project at the bottom of that page.
+
+Then give the project any name such as My Project
+
+If it prompts anything else, just follow the prompts.
+
+Our objective is to create a new smart home project
+
+Then in the next page, select Smart Home and click on Start Building
+
+You should get to the “Project Overview' page
+
+Here, click on Name your smart Home Action
+
+Set a display name. This is the name That will appear when adding devices to GoogleHome
+on your smart phone.
+
+I called it as My Course
+
+Then click on Overview and go back to the previous screen.
+
+Then press on Setup account linking.
+
+Enter Client ID. This is an ID that you associate with your project.
+
+You can give it any string. Remember whatever you entered as we need that when writing
+programs on your web server
+
+Enter any string for Client secret. This is your secret password for your project. Enter any
+string.
+
+You need to remember this. We will need this when writing programs on your cloud server.
+
+Next, In Authorization URL, enter:
+```https://<your domain name>/myapp/googleAuth/```
+
+And, for token URL, enter:
+```https://<your domain name>/myapp/googleToken/```
+
+Save this by pressing Save button
+
+Then, Click on Overview tab again
+And, there, click on Build Your Action
+Then click on Add Action(s)
+
+Enter Fulfillment URL as:
+```https://<your domain name>/myapp/googleHome/```
+
+Example:
+```https://amiteshkr.xyz/myapp/googleHome/```
+
+PS: Make sure that the link has the forward slash at the end as shown above.
+Leave everything else as default. Press ```Save``` button
+Then press Save button to save them.
+done with setting up the google action console
