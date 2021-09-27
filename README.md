@@ -22,7 +22,7 @@
 - Configuring MQTT broker with SSL encryption:
 [https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configuring-mqtt-broker-with-ssl-encryption](url)
 
-- Modify firmware of the device to use ssl certificate:
+- Modify firmware of the device to use ssl certificate: [https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#modify-firmware-of-the-device-to-use-ssl-certificate](url)
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
 #### Steps Involved:
