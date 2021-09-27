@@ -71,3 +71,16 @@ Then, Type DHT11 in the right field
 That will show this library along with a few others.
 Click on Install
 
+## BUILDING a CLOUD SERVER(GOOGLE CLOUD):
+goto:
+[https://console.cloud.google.com/compute](url)
+There, create a project, if you do not have one already. Give the project any name or, leave it
+as default My Project
+Then, create an instance by clicking 'Create an Instance'
+In the form that opens up,
+>> In the Firewall section, check both 'Allow HTTP traffic' and 'Allow HTTPS traffic'
+>> Leave everything else as default
+>> Then press 'Create' button
+This may take a few minutes. If everything is successfull,
+it will show a page with the name of the instance.
+It will also show its <external ip address>.
