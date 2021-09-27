@@ -580,3 +580,110 @@ Example:
 If you have completed all the steps correctly, You should be seeing a page with title: My
 Course
   
+*********************************************************************************************************************************************************************************
+  
+  
+## SSL certificates Installation:
+
+We need to make https access instead of http. This is required for security.
+
+Google Home actions also need https access and not http.
+
+Installing letsencrypt certificate. On a terminal of the cloud server, run the following
+command:
+
+```sudo apt install python3-certbot-apache```
+
+Edit the file /etc/apache2/sites-enabled/000-default.conf
+
+```sudo vi /etc/apache2/sites-enabled/000-default.conf```
+
+
+This file is a copy from my server and, therefore, it has my home directory.
+To use this file or to compare it with yours, you need to replace my home directory with
+yours.
+After modifying and saving the above file, test the configuration by running the following
+command
+
+```sudo apachectl configtest```
+
+It should say syntax ok
+
+Then restart apache2 by running the following command
+
+```sudo systemctl restart apache2```
+
+Now, install letsencrypt certificate by running the following command
+
+```sudo certbot --apache```
+
+
+
+
+When all options are selected, it will complete installation of the certificate with a long
+message starting with 'Congratulations ...'
+If you get any errors, it may be because of any errors in configuration. Fix it and reinstall the
+certificate.
+The certificates and private and public keys are sored at the following location:
+
+```
+/etc/letsencrypt/live/<domain name>/cert.pem
+/etc/letsencrypt/live/<domain name>/chain.pem
+/etc/letsencrypt/live/<domain name>/privkey.pem
+```
+
+Now, restart apache2 by running the following command
+
+```sudo systemctl restart apache2```
+
+Open a browser and enter the urls https://<your domain name>
+
+Check if it displays your page as before
+
+Setting autorenewal of certificate
+
+Now, for regular renewal of the certificate, run the following commands:
+
+```
+sudo systemctl start certbot.timer
+sudo systemctl enable certbot.timer
+sudo systemctl status certbot.timer
+```
+
+Now, edit settings.py of the django (in the directory my_proj/my_proj)
+
+```cd /my_proj/my_proj```
+
+```vi settings.py```
+
+Add the following lines at the end
+
+```
+secure proxy SSL header and secure cookies
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+session expire at browser close
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+wsgi scheme
+os.environ['wsgi.url_scheme'] = 'https'
+```
+
+Now, edit the file wsgi.py in the same directory and add the following lines at the end
+
+```os.environ['HTTPS'] = "on"```
+
+Then, restart apache2 by running the following command
+
+```sudo systemctl restart apache2```
+
+Now, on a browser enter the url as follows:
+
+```https://<your domain name>```
+
+That should work
+You will also notice that even if you enter http://<your domain name>, it re-directs to
+
+```https://<your domain name>```
+
+If all steps are successful, you have installed SSL certificate on your cloud server.
