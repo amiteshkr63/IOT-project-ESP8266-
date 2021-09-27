@@ -1,2 +1,24 @@
-# IOT-project-ESP8266-
-This System is designed to display and control the status of electrical appliances via Django Server. interfacing the control of electrical appliance with Google Home via Google Cloud services and MQTT. It is also capable of sensing temperature via DHT11. In case of Intruder motion sensor will detect it automatically beeps the buzzer and an alert is received on gmail account.
+# OBJECTIVE:
+## Develop a complete IOT system we can activate parts of an IOT device from remote browsers as well as voice prompt through Google Home on your smartphone.
+
+***********************************************************************************************************************************************************************************
+### Development of IOT system
+#### Steps Involved:
+##### 1)Hardware design and Cabling sensors
+##### 2)Firmware Programming(Arduino IDE)
+##### 3)Cloud Server Building and Configuration
+##### 4)MQTT installation cofiguration Publish/Subscribe Programming
+##### 5)Domain name registration
+##### 6)Django web server for IOT installation Configuration programming
+##### 7)SSL Certificate Data encryption for IOT
+##### 8)Google Home Linking Action Fullfilment endpoint programming
+***********************************************************************************************************************************************************************************
+### Hardware needed:
+##### 1)ESP8266/NodeMCU
+##### 2)Relay module
+##### 3)Temperature sensor
+##### 4)Motion Sensor
+##### 5)Buzzer
+##### 6)RGB Led
+##### 7)Solid state Relay
+***********************************************************************************************************************************************************************************
