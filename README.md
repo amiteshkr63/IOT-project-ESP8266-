@@ -384,3 +384,164 @@ run the following command and see if you see any errors
 If everything is correct, this will not show any errors.
 
   *********************************************************************************************************************************************************************************
+
+## Configure apache2 to server Django:
+  
+ #### Configure apache2 to run on port 80
+  
+ edit the file /etc/apache2/sites-available
+
+```cd /etc/apache2/sites-available```
+
+```sudo vi 000-default.conf```
+
+And, add the following lines just before the last line <VirtualHost>
+
+PS. After copying, Make sure to replace /home/raman with your home directory
+
+also, while copying from this file, make sure to keep the format. Also make sure that
+there are no extra unwanted characters.
+That can happen if you are copying from thios pdf file.
+
+```
+WSGIDaemonProcess my_proj python-path=/home/raman/my_proj:/home/amitesh/.virtualenvs/django/lib/python3.7/site-packages
+WSGIProcessGroup my_proj
+WSGIScriptAlias / /home/amitesh/my_proj/my_proj/wsgi.py
+```
+
+Then, within the <VitualHost>, add the following lines
+
+```
+Alias /static /home/amitesh/my_proj/static
+<Directory /home/amitesh/my_proj/static>
+Require all granted
+</Directory>
+<Directory /home/amitesh/my_proj/my_proj>
+<Files wsgi.py>
+Require all granted
+</Files>
+</Directory>
+```
+
+Note: I have attached a file 000-default.conf in the resources of this lesson.
+
+When you modify this file, make sure that what you get is similar to what I have attached,
+except the home directory. The attached files have my home directory. You may have to
+replace them with yours when you are comparing or copying
+Now, change file permissions of a few files so that apache can use them.
+Run the following commands
+
+```cd ~```
+
+```chmod 664 ~/my_proj/db.sqlite3```
+
+```chmod 775 ~/my_proj```
+
+```sudo chown :www-data ~/my_proj/db.sqlite3```
+
+```sudo chown :www-data ~/my_proj```
+
+Now, check if config is correct by running the following command
+
+```sudo apache2ctl configtest```
+
+It should say:
+
+Syntax OK
+
+Now, start apache2 by running the following command
+
+```sudo systemctl start apache2```
+
+Now start a django app by running the following command
+
+workon django```
+
+```cd ~/my_proj```
+
+```python manage.py startapp myapp```
+
+edit the file settings.py and add the following lines within the INSTALLED_APPS
+
+```
+'myapp.apps.MyappConfig',
+```
+
+edit the file my_proj/my_proj/urls.py and add the following:
+
+```
+from django.contrib import admin
+from django.urls import path, include
+from myapp import views
+urlpatterns = [
+path('admin/', admin.site.urls),
+path('myapp/', include('myapp.urls')),
+path('', views.index, name='index'),
+]
+```
+
+## Now, cd to ~/my_proj/myapp and create a file views.py
+##Add the following lines in views.py.
+
+```from django.shortcuts import render```
+
+```from django.http import HttpResponse```
+
+Create your views here.
+
+```
+def index(request):
+message = “Hello ! Welcome to this course”
+context = {
+'message': message,
+}
+return render(request, 'myapp/display_a_message.html', context)
+```
+
+Next, edit or create a file urls.py 
+
+```
+from django.urls import path
+from . import views
+app_name = 'myapp'
+urlpatterns = [
+path('', views.index, name='index'),
+path('index/', views.index, name='index'),
+]
+```
+
+then in this myapp folder, create a directory by running the following commands
+
+```cd ~/my_proj/myapp```
+
+```mkdir templates```
+
+```cd templates```
+
+```mkdir myapp```
+
+```cd myapp```
+
+To this folder, copy the following files:
+
+```
+base_form.html
+display_a_message.html
+```
+
+Note: If done correctly, the above two files are in location:
+
+```~/my_proj/myapp/templates/myapp/```
+
+Then restart apache2 by running the following command
+
+```sudo systemctl restart apache2```
+
+Then on a browser of your computer enter the domain name of your cloud server in the
+address bar and press enter.
+Example:
+```http://amiteshkr.xyz```
+
+If you have completed all the steps correctly, You should be seeing a page with title: My
+Course
+  
