@@ -706,3 +706,50 @@ You will also notice that even if you enter http://<your domain name>, it re-dir
 ```https://<your domain name>```
 
 If all steps are successful, you have installed SSL certificate on your cloud server.
+
+ *********************************************************************************************************************************************************************************
+ 
+ ## Configuring MQTT broken with SSL encryption:
+
+edit the file /etc/mosquitto/conf.d/default.conf and add the following:
+This will make sure that it uses letsencrypt certificate and uses encryption on connections on
+```port 8883```
+
+```
+listener 1883 localhost
+listener 8883
+certfile /etc/letsencrypt/live/amiteshkr.xyz/cert.pem
+cafile /etc/letsencrypt/live/amiteshkr.xyz/chain.pem
+keyfile /etc/letsencrypt/live/amiteshkr.xyz/privkey.pem
+```
+
+since mosquito is using 8883 port for external communications, we need to change
+the firewall rules of the cloude server
+
+Allow port 8883 on firewall, And, remove port 1883 from allowed ports
+
+To do that...
+
+Go to https://console.cloud.google.com/compute
+
+Click on the menu (three lines at the top lest).
+
+Then select VPC Network -> Firewall
+
+Go to Networking -> VPC Network -> Firewall
+
+Then click on the name of the firewall where you have allowed port 1883
+
+Then click on Edit tab
+
+Then scroll down where you will see 1883 under Protocols and ports.
+
+There, change 1883 to 8883
+
+Then press Save
+
+The firewall will now allow tcp port 8883 to cloud server
+
+Then restart mosquitto by running the following command
+
+```sudo systemctl restart mosquitto```
