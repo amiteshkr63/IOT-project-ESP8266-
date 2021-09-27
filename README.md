@@ -122,21 +122,23 @@ where id_rsa is the name of the default private key.
 Use the correct file path and file name of your private key as per what you have
 chosen when running ssh-keygen command above
 Hereafter, to login to the cloud server, use the above command
-4) login to the cloud server and set root password
+1.login to the cloud server and set root password
 
   ```sudo passwd```
 
-  5) Update server
+2.Update server
 
   ```sudo apt-get update```
 
   ```sudo apt-get upgrade```
-6) check python on your cloud server:
+
+3.check python on your cloud server:
 
   ```which python3```
 
   ```python3 --version```
-7) run the following command to install pip3:
+
+4.run the following command to install pip3:
 
   ```sudo apt install python3-pip```
 
