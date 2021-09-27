@@ -871,7 +871,7 @@ Leave everything else as default. Press ```Save``` button
 Then press Save button to save them.
 done with setting up the google action console
  
- *********************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************
  
 ## Google Home – Account Linking:
 
@@ -946,4 +946,57 @@ Call to googleHome function in your ```views.py```
 Monitor these messages in the error.log in your second terminal)
 
 
+## Google Home fulfillment functions - SYNC:
 
+Ref: https://developers.google.com/assistant/smarthome/develop/process-intents
+
+googleHome function needs to get token sent by google server.
+
+This token is in the header of the packet.
+
+By default, authorization header is not passed on to by the operating system
+
+To get that passed on, edit the file /etc/apache2/apache2.conf
+
+```sudo vi /etc/apache2/apache2.conf```
+
+Then add the following line just before the line ```.htaccess``` and save the file
+
+```
+WSGIPassAuthorization On
+Then restart apache2
+sudo systemctl restart apache2
+```
+
+If everything is done correctly, you can test this now
+On your smart phone, open GoogleHome app.
+Make sure that you have logged in with the same email that you used for creating
+your project in google action console 
+
+Press + on the main page of google Home to add devices
+
+Then, click Set up device
+
+Then click on Work with Google
+
+Here you will see in the first line (test)<the invocation name of your project)
+
+Click on that invocation name
+
+googleHome will now communicate with your web server.
+
+You will see that a call is made to googleAuth in your views.py.
+
+(Monitor error.log to see these messages )
+
+On your smartphone, you will be prompted to login
+
+Once successful, googleHome server makes a call to googleToken in your views.py
+
+If that is also successfull, googleHome server will make another
+
+call to googleHome function in your views.py
+
+It will call the SYNC function and add the device to your google Home
+
+You will be seeing a new device in your GoogleHome on your smartphone.
