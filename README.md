@@ -22,6 +22,7 @@
 - Configuring MQTT broker with SSL encryption:
 [https://github.com/amiteshkr63/IOT-project-ESP8266-/blob/main/README.md#configuring-mqtt-broker-with-ssl-encryption](url)
 
+- Modify firmware of the device to use ssl certificate:
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
 #### Steps Involved:
@@ -755,3 +756,51 @@ The firewall will now allow ```tcp port 8883``` to cloud server
 Then restart mosquitto by running the following command
 
 ```sudo systemctl restart mosquitto```
+
+## Modify firmware of the device to use ssl certificate:
+ 
+Change the line ```WiFiClient wifiClient``` to ```WiFiClientSecure wifiClient```
+Then, open a terminal to the cloud server and print out the cert.pem
+
+```sudo cat /etc/letsencrypt/live/amiteshkr.xyz/cert.pem```
+
+Copy that text to the arduino sketch as (example):
+
+Here it is for my server:
+```
+const char caCert[] PROGMEM = R"EOF(
+< Paste that cerificate text here including
+-----BEGIN CERTIFICATE-----
+<text from cert.pem>
+-----END CERTIFICATE-----
+)EOF";
+```
+
+Next, you need to find the ```fingerprint(SHA-1)``` of this certificate. This is needed in firmware.
+
+
+```
+const uint8_t mqttCertFingerprint[] =
+{YOUR SHA-1 fingerprint};```
+
+Then, copy this to arduino sketch. Paste this just after the previous pasted line
+in the arduino sketch.
+
+Then, add the following line next to it
+
+```X509List caCertX509(caCert);```
+
+Then, in the next to next line, ```change the mqtt broker's port to 8883```
+
+Then, within the in the setup() function of the sketch, add the following lines
+ after WiFi is connected:
+ ```
+wifiClient.setTrustAnchors(&caCertX509);
+wifiClient.setFingerprint(mqttCertFingerprint);
+```
+Then compile and load the sketch.
+ It should compile and load without errors.
+
+Open the serial monitor of the arduino sketch. If successful, you should be seeing a message
+Connected Successfully to MQTT Broker !
+ 
