@@ -217,6 +217,7 @@ Now, restart mosquitto
 
 ```sudo systemctl restart mosquitto```
   
+*********************************************************************************************************************************************************************************  
   
 Before you run the program check if the file has execute permissions by running
 the following command, if your are using MacBook or any Linux machines.
@@ -238,3 +239,6 @@ change permission using the following command before executing the programming
 For example:
   
 ```chmod 755 mqtt_publish-1.py```
+  
+
+*********************************************************************************************************************************************************************************
