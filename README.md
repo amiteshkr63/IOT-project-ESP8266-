@@ -83,4 +83,54 @@ In the form that opens up,
 >> Then press 'Create' button
 This may take a few minutes. If everything is successfull,
 it will show a page with the name of the instance.
-It will also show its <external ip address>.
+It will also show its external ip address.
+
+Logging in to the cloud server:
+Create a rsa key pair to ssh to this server as per the steps below:
+If you are using a macbook, or any unix OS, open a terminal and run the following command:
+(If you are using Windows, you can open powershell and run this command.
+(Or, you can use putty)
+ssh-keygen -t rsa -C <user name>
+--- where <user name> may be replaced with your user name
+for example,
+```ssh-keygen -t rsa -C amitesh```
+When it prompts for file name to store the keys, you can either use the default,
+or use any other file name.
+Once completed, this command will generate two files.
+They are private and public keys.
+These files are saved at the location you entered in when it prompted.
+Next, you need to enter the contents of the public key to metadata
+of the cloud server as follows:
+On the browser, go to .https://console.cloud.google.com/compute
+Then, click on metadata
+> Click on SSH Keys
+> Then click on Add SSH keys
+Note: If you have earlier added ssh keys to this server,
+> There click on Edit
+> Then click on +
+> Then, paste the contents of the .pub file here
+> Then press Save
+Now, you can ssh to your cloud instance with the following command
+from a terminal of your computer as follows:
+(Microsoft Windows users can do this in a powershell, or use Putty)
+```ssh -i <absolute path of private key file name> <user name>@<external ip address
+of cloud server>```
+Example:
+```ssh -i ~/.ssh/id_rsa amitesh@35.232.76.4```
+where id_rsa is the name of the default private key.
+Use the correct file path and file name of your private key as per what you have
+chosen when running ssh-keygen command above
+Hereafter, to login to the cloud server, use the above command
+4) login to the cloud server and set root password
+```sudo passwd```
+5) Update server
+```sudo apt-get update```
+```sudo apt-get upgrade```
+6) check python on your cloud server:
+```which python3```
+```python3 --version```
+7) run the following command to install pip3:
+```sudo apt install python3-pip```
+```which pip3```
+```pip3 --version```
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
