@@ -870,3 +870,80 @@ PS: Make sure that the link has the forward slash at the end as shown above.
 Leave everything else as default. Press ```Save``` button
 Then press Save button to save them.
 done with setting up the google action console
+ 
+ *********************************************************************************************************************************************************************************
+ 
+## Google Home – Account Linking:
+
+The document from Google for account linking is: Ref: https://developers.google.com/assistant/identity/oauth2?oauth=code
+
+To implement it, the steps are as follows:
+Modify your views.py and add the endpoint programs for googleAuth and googleToken.
+
+Note: we have added three function at the bottom of views.py.
+
+```
+googleAuth(request):
+googleToken(request):
+googleHome(request):
+ ```
+
+
+Execute the following command to migrate the changes made in models.py
+
+```cd ~/my_proj```
+
+```workon django```
+
+```python manage.py makemigrations myapp```
+
+```python manage.py migrate```
+
+exit
+
+Then restart apache2
+```sudo systemctl restart apache2```
+
+Now, open another terminal to your cloud server and run the following command
+
+```sudo tail -f /var/log/apache2/error.log```
+
+The above command will display all messages from apache2. All the print statements in
+the views.py will be displayed there. So, you can monitor whether googleAuth and
+googleToken functions are called when we do the next steps.
+
+Now, we will test is Auth and Token calls are working.
+
+On your smart phone, open ```GoogleHome app```.
+
+Make sure that you have logged into GoogleHome app with the same email that you used for
+creating
+
+Press ```+``` on the main page of google Home to add devices
+
+Then, click ```Set up device```
+
+Then click on ```Work with Google```
+
+Here you will see in the first line (test)<the invocation name of your project)
+where the invocation name is the invocation name that you gave when
+creating a google console project 
+
+Click on that ```invocation name```
+
+googleHome will now communicate with your web server.
+
+You will see that a call is made to googleAuth in your views.py. (check the ```error.log``` in your
+second terminal)
+
+On your smart phone, you will be prompted to login.
+
+Once successful, googleHome server makes a call to googleToken in your ```views.py```
+
+If that is also successfull, googleHome server will make another
+
+Call to googleHome function in your ```views.py```
+Monitor these messages in the error.log in your second terminal)
+
+
+
