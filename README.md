@@ -113,23 +113,34 @@ Note: If you have earlier added ssh keys to this server,
 Now, you can ssh to your cloud instance with the following command
 from a terminal of your computer as follows:
 (Microsoft Windows users can do this in a powershell, or use Putty)
+  
 ```ssh -i <absolute path of private key file name> <user name>@<external ip address of cloud server>```
 Example:
-```ssh -i ~/.ssh/id_rsa amitesh@35.232.76.4```
+
+  ```ssh -i ~/.ssh/id_rsa amitesh@35.232.76.4```
 where id_rsa is the name of the default private key.
 Use the correct file path and file name of your private key as per what you have
 chosen when running ssh-keygen command above
 Hereafter, to login to the cloud server, use the above command
 4) login to the cloud server and set root password
-```sudo passwd```
-5) Update server
-```sudo apt-get update```
-```sudo apt-get upgrade```
+
+  ```sudo passwd```
+
+  5) Update server
+
+  ```sudo apt-get update```
+
+  ```sudo apt-get upgrade```
 6) check python on your cloud server:
-```which python3```
-```python3 --version```
+
+  ```which python3```
+
+  ```python3 --version```
 7) run the following command to install pip3:
-```sudo apt install python3-pip```
-```which pip3```
-```pip3 --version```
+
+  ```sudo apt install python3-pip```
+
+  ```which pip3```
+
+  ```pip3 --version```
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
