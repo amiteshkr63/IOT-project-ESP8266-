@@ -1,7 +1,7 @@
 # OBJECTIVE:
 ## Develop a complete IOT system we can activate parts of an IOT device from remote browsers as well as voice prompt through Google Home on your smartphone.
 
-***********************************************************************************************************************************************************************************
+*********************************************************************************************************************************************************************************
 ### Development of IOT system
 #### Steps Involved:
 ##### 1)Hardware design and Cabling sensors
@@ -12,7 +12,7 @@
 ##### 6)Django web server for IOT installation Configuration programming
 ##### 7)SSL Certificate Data encryption for IOT
 ##### 8)Google Home Linking Action Fullfilment endpoint programming
-***********************************************************************************************************************************************************************************
+*********************************************************************************************************************************************************************************
 ### Hardware needed:
 ##### 1)ESP8266/NodeMCU
 ##### 2)Relay module
@@ -21,7 +21,7 @@
 ##### 5)Buzzer
 ##### 6)RGB Led
 ##### 7)Solid state Relay
-***********************************************************************************************************************************************************************************
+*********************************************************************************************************************************************************************************
 #### PIN Connections:
   D0:  Relay, When 0 is applied, relay is activated
   
@@ -241,8 +241,23 @@ For example:
   
 ```chmod 755 mqtt_publish-1.py```
   
-
 *********************************************************************************************************************************************************************************
+
+### Uploading Files on Cloud Server:
+
+1.first goto file location in PowerShell
+
+2.Sftp login to your virtual machine:
+  
+```sftp -i ~/.ssh/course_rsa amitesh@34.125.15.44```
+
+3.Use command:
+
+```put <file name> ```///to upload single file of that location
+  
+```put * ```///to upload all files of that location
+  
+  *********************************************************************************************************************************************************************************
 
 ## Domain Name Registration:
   
@@ -267,21 +282,106 @@ try the following command from your computer
   Example:
   
 ```ping amiteshkr.xyz```
-  
   *********************************************************************************************************************************************************************************
-  
-### Uploading Files on Cloud Server:
 
-1.first goto file location in PowerShell
+## Django web server - Installation:
 
-2.Sftp login to your virtual machine:
-  
-```sftp -i ~/.ssh/course_rsa amitesh@34.125.15.44```
+  1)install apache2 and mod-wsgi
+Open a terminal to your cloud server and run the following command
 
-3.Use command:
+```sudo apt-get install apache2 apache2-utils ssl-cert libapache2-mod-wsgi-py3```
 
-```put <file name> ```///to upload single file of that location
-  
-```put * ```///to upload all files of that location
-  
+2) Create virtual environment:
+
+Run the following commands to install virtual environmemt
+
+```pip3 install virtualenv```
+
+```pip3 install virtualenvwrapper```
+
+then edit the file ~/.bashrc and add the following:
+
+```
+export WORKON_HOME=~/.virtualenvs
+export MY_PROJECT=~/my_proj
+export VIRTUALENVWRAPPER_WORKON_CD=1
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/home/amitesh/.local/bin/virtualenv
+source /home/amitesh/.local/bin/virtualenvwrapper.sh
+```
+
+Then, run the following command:
+
+```source ~/.bashrc```
+
+Then create a virtual environment by running the following command.
+Here, django is the name of the virtual environment
+
+```mkvirtualenv django```
+
+then activate the virtual environment by running the following command
+
+```workon django```
+
+We are in virtual environment now
+
+install paho-mqtt in the django virtual environment by running the following command
+
+```pip install paho-mqtt```
+
+
+install django by running the following command
+
+```pip install django```
+
+Create a django project by running the following command
+
+django-admin.py startproject my_proj
+
+edit the file settings.py
+
+```cd ~/my_proj/my_proj```
+
+```vi settings.py```
+
+import os
+
+And, modify the ALLOWED_HOSTS line as shown below:
+Note: iotcourse.xyz is my domain name. You may replace it with your domain name
+35.223.145.82 is my server's ip address. You may replace it with your server's ip address
+
+```
+ALLOWED_HOSTS = ["127.0.0.1", "34.125.15.44", 'amiteshkr.xyz', 'http://amiteshkr.xyz',
+'https://amiteshkr.xyz', 'www.amiteshkr.xyz', 'https://amiteshkr.xyz', 'https://www.amiteshkr.xyz',]
+```
+
+And, add the following just after STATIC_URL at the bottom
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+Then save the settings.py
+This settings.py will look similar to settings.py-initial in the resources of Lesson-14,
+except for the ALLOWED_HOSTS. If you are copying settings.py-initial, make sure
+to change the ip address and domain name with yours.
+now, migrate by running the following commands
+
+```cd ~/my_proj```
+
+```python manage.py makemigrations```
+
+```python manage.py migrate```
+
+Create superuser by running the following command
+
+```python manage.py createsuperuser```
+
+collect static files by running the following command
+
+```python manage.py collectstatic```
+
+run the following command and see if you see any errors
+
+```python manage.py runserver 0:8000```
+
+If everything is correct, this will not show any errors.
+
   *********************************************************************************************************************************************************************************
