@@ -22,3 +22,10 @@
 ##### 6)RGB Led
 ##### 7)Solid state Relay
 ***********************************************************************************************************************************************************************************
+#### PIN Connections:
+D0-RELAY
+D2-SOLID STATE RELAY
+D3-RGB LED
+D8-BUZZER
+
+![Screenshot (1679)](https://user-images.githubusercontent.com/88953654/134885998-6c5e7e4d-4b61-4493-872f-82511caa7a83.png)
