@@ -218,6 +218,7 @@ Now, restart mosquitto
 ```sudo systemctl restart mosquitto```
   
 *********************************************************************************************************************************************************************************  
+### FILE PERMISSION:
   
 Before you run the program check if the file has execute permissions by running
 the following command, if your are using MacBook or any Linux machines.
