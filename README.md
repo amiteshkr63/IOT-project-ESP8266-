@@ -1,6 +1,11 @@
 # OBJECTIVE:
 ## Develop a complete IOT system we can activate parts of an IOT device from remote browsers as well as voice prompt through Google Home on your smartphone.
 
+#### This projects of following Sections:
+
+
+
+
 *********************************************************************************************************************************************************************************
 ### Development of IOT system
 #### Steps Involved:
@@ -41,7 +46,7 @@
 
 ![Screenshot (1679)](https://user-images.githubusercontent.com/88953654/134885998-6c5e7e4d-4b61-4493-872f-82511caa7a83.png)
 
-In ARDUINO IDE, Make these following changes:
+## In ARDUINO IDE, Make these following changes:
 1) Open arduino IDE
 
 2) Go to File -> preferences 
@@ -164,7 +169,7 @@ Hereafter, to login to the cloud server, use the above command
 
   ```pip3 --version```
 
-## MQTT Broker Installation and Configuration):
+## MQTT Broker Installation and Configuration:
 
 *********************************************************************************************************************************************************************************
 
