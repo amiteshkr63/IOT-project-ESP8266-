@@ -71,7 +71,7 @@ Then, Type DHT11 in the right field
 That will show this library along with a few others.
 Click on Install
 
-## BUILDING a CLOUD SERVER(GOOGLE CLOUD):
+## BUILDING a CLOUD SERVER(GOOGLE CLOUD:
 goto:
 [https://console.cloud.google.com/compute](url)
 There, create a project, if you do not have one already. Give the project any name or, leave it
@@ -117,7 +117,7 @@ from a terminal of your computer as follows:
 ```ssh -i <absolute path of private key file name> <user name>@<external ip address of cloud server>```
 Example:
 
-  ```ssh -i ~/.ssh/id_rsa amitesh@35.232.76.4```
+  ```ssh -i ~/.ssh/id_rsa amitesh@34.125.15.44```
 where id_rsa is the name of the default private key.
 Use the correct file path and file name of your private key as per what you have
 chosen when running ssh-keygen command above
@@ -243,3 +243,45 @@ For example:
   
 
 *********************************************************************************************************************************************************************************
+
+## Domain Name Registration:
+  
+We need a domain name
+  
+go to [https://godaddy.com](url) and register a domain
+
+If it is just for this course, register a name
+  
+Once registered, go to manage DNS of your domain. There, you will see a
+few rows of entry already.
+
+In the row of A type record, press edit and change ;Parked' to the ip address of your cloud
+server. In my case, the ip address of my cloud server was 34.125.15.44 So, I changeed 'parked' to
+this ip address  
+  
+When everything is done, you will be able to ping your cloud server as
+try the following command from your computer
+  
+```ping <your domain name>```
+  
+  Example:
+  
+```ping amiteshkr.xyz```
+  
+  *********************************************************************************************************************************************************************************
+  
+### Uploading Files on Cloud Server:
+
+1.first goto file location in PowerShell
+
+2.Sftp login to your virtual machine:
+  
+```sftp -i ~/.ssh/course_rsa amitesh@34.125.15.44```
+
+3.Use command:
+
+```put <file name> ```///to upload single file of that location
+  
+```put * ```///to upload all files of that location
+  
+  *********************************************************************************************************************************************************************************
