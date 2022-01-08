@@ -410,7 +410,7 @@ edit the file settings.py
 import os
 
 And, modify the ALLOWED_HOSTS line as shown below:
-Note: iotcourse.xyz is my domain name. You may replace it with your domain name
+Note: amiteshkr.xyz is my domain name. You may replace it with your domain name
 35.223.145.82 is my server's ip address. You may replace it with your server's ip address
 
 ```
